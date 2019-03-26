@@ -43,6 +43,12 @@ export default {
   height: .88rem;
   text-align: center;
   line-height: .88rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: #fff;
 }
 
 .nav .left,.nav .middle,.nav .right {

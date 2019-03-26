@@ -98,6 +98,7 @@ export default {
 
 <style scoped>
 .title {
+  margin-top: .88rem;
   text-align: center;
   background: #F8F8F8;
   height: 1rem;
