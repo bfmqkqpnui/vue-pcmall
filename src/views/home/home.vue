@@ -37,8 +37,9 @@ export default {
     }
   },
   methods: {
-    goProductsDetails() {
-      console.log("详情页")
+    goProductsDetails(item) {
+      console.log("详情页", item)
+      this.$router.push({path: '/goodsDetail/' + item.index})
     },
     queryAll() {
       api.queryList().then(res => {

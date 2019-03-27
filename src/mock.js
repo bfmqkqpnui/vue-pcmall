@@ -7,17 +7,17 @@ const Random = Mock.Random
 // mock首页列表数据
 const queryAll = () => {
   let list = [];
-  list.push({index: 1, imgUrl: '../../../static/img/goods/sb8.png', goodsName: 'SB8悬臂梁传感器'})
-  list.push({index: 2, imgUrl: '../../../static/img/goods/slb.png', goodsName: 'SLB悬臂梁式传感器'})
-  list.push({index: 3, imgUrl: '../../../static/img/goods/sb14.png', goodsName: 'SB14悬臂梁式称重传感器'})
-  list.push({index: 4, imgUrl: '../../../static/img/goods/rc3.png', goodsName: 'RC3柱式传感器'})
-  list.push({index: 5, imgUrl: '../../../static/img/goods/pc60.png', goodsName: 'PC60单点称重传感器'})
-  list.push({index: 6, imgUrl: '../../../static/img/goods/pc42.png', goodsName: 'PC42单点称重传感器'})
-  list.push({index: 7, imgUrl: '../../../static/img/goods/52-20.png', goodsName: '52-20称重模块'})
-  list.push({index: 8, imgUrl: '../../../static/img/goods/52-30.png', goodsName: '52-30称重模块'})
-  list.push({index: 9, imgUrl: '../../../static/img/goods/55-01-10.png', goodsName: '55-01-10称重模块'})
-  list.push({index: 10, imgUrl: '../../../static/img/goods/ke-4.png', goodsName: 'KE-4接线盒'})
-  list.push({index: 11, imgUrl: '../../../static/img/goods/keex-6.png', goodsName: 'KEEX-6接线盒'})
+  list.push({index: 1, imgUrl: '../../../static/img/goods/sb8.png', goodsName: 'SB8悬臂梁传感器', key: 'sb8', downLoadUrl: 'static/pdf/sb8.pdf'})
+  list.push({index: 2, imgUrl: '../../../static/img/goods/slb.png', goodsName: 'SLB悬臂梁式传感器', key: 'slb', downLoadUrl: 'static/pdf/slb.pdf'})
+  list.push({index: 3, imgUrl: '../../../static/img/goods/sb14.png', goodsName: 'SB14悬臂梁式称重传感器', key: 'sb14', downLoadUrl: 'static/pdf/sb14.pdf'})
+  list.push({index: 4, imgUrl: '../../../static/img/goods/rc3.png', goodsName: 'RC3柱式传感器', key: 'rc3', downLoadUrl: 'static/pdf/rc3.pdf'})
+  list.push({index: 5, imgUrl: '../../../static/img/goods/pc60.png', goodsName: 'PC60单点称重传感器', key: 'pc60', downLoadUrl: 'static/pdf/pc60.pdf'})
+  list.push({index: 6, imgUrl: '../../../static/img/goods/pc42.png', goodsName: 'PC42单点称重传感器', key: 'pc42', downLoadUrl: 'static/pdf/pc42.pdf'})
+  list.push({index: 7, imgUrl: '../../../static/img/goods/52-20.png', goodsName: '52-20称重模块', key: '52-20', downLoadUrl: 'static/pdf/52-20.pdf'})
+  list.push({index: 8, imgUrl: '../../../static/img/goods/52-30.png', goodsName: '52-30称重模块', key: '52-30', downLoadUrl: 'static/pdf/52-30.pdf'})
+  list.push({index: 9, imgUrl: '../../../static/img/goods/55-01-10.png', goodsName: '55-01-10称重模块', key: '55-01-10', downLoadUrl: 'static/pdf/55-01-10.pdf'})
+  list.push({index: 10, imgUrl: '../../../static/img/goods/ke-4.png', goodsName: 'KE-4接线盒', key: 'ke-4', downLoadUrl: 'static/pdf/ke-4.pdf'})
+  list.push({index: 11, imgUrl: '../../../static/img/goods/keex-6.png', goodsName: 'KEEX-6接线盒', key: 'keex-6', downLoadUrl: 'static/pdf/keex-6.pdf'})
   let returnObj = {
     resCode: '00100000',
     msg: '查询成功',
