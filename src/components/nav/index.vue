@@ -3,11 +3,11 @@
     <!-- 导航 -->
     <div class="nav">
       <!-- 左 -->
-      <div class="left"><div class="img"><img src="../css/i/icon_right@3x.png" alt=""></div></div>
+      <div class="left" @click="back"><div class="img"><img src="../css/i/icon_right@3x.png" alt=""></div></div>
       <!-- 中 -->
-      <div class="middle">我是首页</div>
+      <div class="middle" v-text="title"></div>
       <!-- 右 -->
-      <div class="right">联系我们</div>
+      <div class="right" @click.stop="contact">联系我们</div>
     </div>
   </div>
 </template>
@@ -16,11 +16,16 @@
 export default {
   data() {
     return {
-
+      title: '无锡瑞驰曼科技有限公司'
     }
   },
   methods: {
-
+    contact() {
+      this.$router.push({path: '/contact'})
+    },
+    back() {
+      window.history.go(-1)
+    }
   },
   created() {
 
@@ -51,14 +56,12 @@ export default {
   background: #fff;
 }
 
-.nav .left,.nav .middle,.nav .right {
-  flex: 1;
-}
-
 .nav .left {
   text-align: left;
   position: relative;
+  width: .5rem;
 }
+
 .nav .left .img {
   width: .4rem;
   height: .4rem;
@@ -80,10 +83,13 @@ export default {
   text-align: right;
   font-size: .28rem;
   color: #ff0000;
-  padding-right: .2rem
+  width: 1.4rem;
+  position: absolute;
+  right: .1rem;
 }
 
 .nav .middle {
   font-size: .32rem;
+  width: 100%;
 }
 </style>

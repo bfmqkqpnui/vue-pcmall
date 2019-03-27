@@ -13,54 +13,12 @@
       </div>
       <div class="product-list">
         <ul>
-          <li>
+          <li v-for="(item, index) in goodsList" :key="index">
             <div class="product-item">
               <div class="common-bg lazy-box">
-                <img @click="goProductsDetails(item)"  class="square-lazy" src="http://47.96.101.31:8000/static/img/slb.b4ab6f3.png"/>
+                <img @click="goProductsDetails(item)"  class="square-lazy" :src="item.imgUrl"/>
               </div>
-              <div class="desc">
-                就离开是积分范德萨就看见发就离开是积分范德萨就看见发就离开是积分范德萨就看见发就离开是积分范德萨就看见发就离开是积分范德萨就看见发
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="product-item">
-              <div class="common-bg lazy-box">
-                <img @click="goProductsDetails(item)"  class="square-lazy" src="./css/i/icon_right_body@2x.png"/>
-              </div>
-              <div class="desc">
-                就离开是积分范德萨就看见发44
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="product-item">
-              <div class="common-bg lazy-box">
-                <img @click="goProductsDetails(item)"  class="square-lazy" src="./css/i/icon_right_body@2x.png"/>
-              </div>
-              <div class="desc">
-                就离开是积分范德萨就看见发33
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="product-item">
-              <div class="common-bg lazy-box">
-                <img @click="goProductsDetails(item)"  class="square-lazy" src="./css/i/icon_right_body@2x.png"/>
-              </div>
-              <div class="desc">
-                就离开是积分范德萨就看见发11
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="product-item">
-              <div class="common-bg lazy-box">
-                <img @click="goProductsDetails(item)"  class="square-lazy" src="./css/i/icon_right_body@2x.png"/>
-              </div>
-              <div class="desc">
-                就离开是积分范德萨就看见发22
-              </div>
+              <div class="desc" v-text="item.goodsName"></div>
             </div>
           </li>
         </ul>
@@ -70,19 +28,29 @@
 </template>
 
 <script>
+import api from './api'
+
 export default {
   data() {
     return {
-
+      goodsList: [],
     }
   },
   methods: {
     goProductsDetails() {
       console.log("详情页")
-    }
+    },
+    queryAll() {
+      api.queryList().then(res => {
+        console.log(res)
+        if (res.body.resCode == "00100000") {
+          this.goodsList = res.body.obj
+        }
+      })
+    },
   },
   created() {
-
+    this.queryAll()
   },
   mounted() {
 
@@ -135,7 +103,7 @@ export default {
   height: 0.7rem;
   line-height: 0.35rem;
   font-size: 0.24rem;
-  color: #444444;
+  color: rgb(179, 29, 79);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

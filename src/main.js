@@ -4,10 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import blur from './components'
+import vueResource from 'vue-resource'
 
 Vue.config.productionTip = false
 
 Vue.use(blur)
+Vue.use(vueResource)
+
+// 引入mockjs
+require('./mock.js')
 
 /* eslint-disable no-new */
 new Vue({
