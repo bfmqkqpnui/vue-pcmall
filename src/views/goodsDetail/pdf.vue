@@ -5,6 +5,7 @@
     <div class="pdfBody">
       {{currentPage}} / {{pageCount}}
       <pdf :src="src" @num-pages="pageCount = $event"
+      :page="currentPage"
 			@page-loaded="currentPage = $event"
       @loaded="loadPdfHandler"></pdf>
     </div>
@@ -25,10 +26,13 @@ export default {
       fileType: 'pdf', // 文件类型
       src: '', // pdf文件地址
       lDisabled: false,
-      rDisabled: true
+      rDisabled: false
     }
   },
   methods: {
+    init(key) {
+      this.src = 'static/pdf/' + key.toUpperCase() + '.pdf'
+    },
     // pdf加载时
     loadPdfHandler (e) {
       this.currentPage = 1 // 加载的时候先加载第一页
@@ -37,11 +41,28 @@ export default {
       console.log(type, this.currentPage, this.pageCount)
       if ("up" == type) {
         if (this.currentPage > 1) {
+          this.rDisabled = false
           this.currentPage -= 1
+          if (this.currentPage <= 1) {
+            this.lDisabled = true
+          } else {
+            this.lDisabled = false
+          }
+        } else {
+          this.lDisabled = true
+          if (this.pageCount > 0) {
+            this.rDisabled = false
+          }
         }
       } else if ("down" == type) {
         if (this.currentPage < this.pageCount) {
           this.currentPage += 1
+          this.lDisabled = false
+          if (this.currentPage >= this.pageCount) {
+            this.rDisabled = true
+          }
+        } else {
+          this.rDisabled = true
         }
       }
     }
@@ -49,7 +70,9 @@ export default {
   created() {
     // 有时PDF文件地址会出现跨域的情况,这里最好处理一下
     // this.src = pdf.createLoadingTask(this.src)
-    this.src = 'static/pdf/SB8.pdf'
+    console.log(this.$route.params.id)
+    let key = this.$route.params.id
+    this.init(key)
   },
   mounted() {
     console.log(666, this.currentPage, this.pageCount)
@@ -62,16 +85,10 @@ export default {
     pdf
   },
   watch: {
-    currentPage() {
-      console.log(999, this.currentPage, this.pageCount)
-      this.currentPage >= 1 ? this.lDisabled = true : this.lDisabled = false
-    },
-    pageCount() {
-      console.log(111, this.currentPage, this.pageCount)
-      if (this.pageCount < this.currentPage) {
-        this.rDisabled = true
-      } else {
-        this.rDisabled = false
+    '$route'(to,from) {
+      if (this.$route.params.id) {
+        let key = this.$route.params.id
+        this.init(key)
       }
     }
   }
