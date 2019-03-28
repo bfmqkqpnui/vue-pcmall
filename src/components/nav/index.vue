@@ -24,7 +24,9 @@ export default {
       this.$router.push({path: '/contact'})
     },
     back() {
-      window.history.go(-1)
+      if (location.href.indexOf('/home') != -1) {
+        window.history.go(-1)
+      }
     }
   },
   created() {

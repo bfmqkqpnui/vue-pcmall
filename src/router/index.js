@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from '@/views/home/home'
 import contact from '@/views/contact/contact'
 import goodsDetail from '@/views/goodsDetail/goodsDetail'
+import pdf from '@/views/goodsDetail/pdf'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/goodsDetail/:id',
       name: 'goodsDetail',
       component: goodsDetail
+    },
+    {
+      path: '/goodsDetail/:id/pdf',
+      name: 'pdf',
+      component: pdf
     },
   ]
 })

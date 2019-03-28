@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "mockjs": "^1.0.1-beta3",
+    "pdfjs-dist": "^2.0.943",
     "vue": "^2.5.2",
+    "vue-devtools": "^5.0.0-beta.1",
+    "vue-pdf": "^4.0.6",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1"
   },

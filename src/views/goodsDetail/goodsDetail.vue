@@ -42,6 +42,7 @@
       download(item) {
         console.log(item)
         // window.location.href = item.downLoadUrl
+        this.$router.push({path: '/goodsDetail/' + item.key + '/pdf'})
       }
     },
     created() {
