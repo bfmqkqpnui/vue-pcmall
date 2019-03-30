@@ -40,6 +40,11 @@ export default {
           this.infoList = res.body.obj
         }
       })
+    },
+    call(tel) {
+      if (tel) {
+        location.href = "tel:" + tel
+      }
     }
   },
   created() {
