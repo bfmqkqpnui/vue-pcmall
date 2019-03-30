@@ -9,7 +9,7 @@
       <span v-text="goodsList[goodsId - 1].goodsName"></span>
     </div>
     <div class="btn" @click.stop="download(goodsList[goodsId - 1])">
-      <span>查看详情</span>
+      <span>查看PDF详情</span>
     </div>
   </div>
 </template>
