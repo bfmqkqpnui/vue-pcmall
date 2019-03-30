@@ -4,6 +4,7 @@ import home from '@/views/home/home'
 import contact from '@/views/contact/contact'
 import goodsDetail from '@/views/goodsDetail/goodsDetail'
 import pdf from '@/views/goodsDetail/pdf'
+import pdfCanvas from '@/views/goodsDetail/pdfCanvas'
 
 Vue.use(Router)
 
@@ -34,5 +35,10 @@ export default new Router({
       name: 'pdf',
       component: pdf
     },
+    {
+      path: '/goodsDetail/:id/pdfCanvas',
+      name: 'pdfCanvas',
+      component: pdfCanvas
+    }
   ]
 })

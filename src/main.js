@@ -5,11 +5,13 @@ import App from './App'
 import router from './router'
 import blur from './components'
 import vueResource from 'vue-resource'
+import infiniteScroll from 'vue-infinite-scroll';
 
 Vue.config.productionTip = false
 
 Vue.use(blur)
 Vue.use(vueResource)
+Vue.use(infiniteScroll)
 
 // 引入mockjs
 require('./mock.js')
